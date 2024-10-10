@@ -4,20 +4,15 @@ package com.example.ufmsportshome.Ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.ufmsportshome.data.model.Match
 import com.example.ufmsportshome.data.model.homeresponse
 import com.example.ufmsportshome.data.remote.ApiClient
 import com.example.ufmsportshome.data.remote.HomeRepository
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(repository: HomeRepository) : ViewModel() {
 
     private val _homeData = MutableLiveData<homeresponse>()
     val homeData: LiveData<homeresponse>
